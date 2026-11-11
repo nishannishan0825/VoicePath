@@ -387,9 +387,12 @@ function startListening() {
     } catch (error) {
         showStatus(t("microphoneBusy"));
         isRunning = false;
+        voiceLanguage.disabled = false;
+        supportCategory.disabled = false;
         startVoiceBtn.disabled = false;
         startVoiceBtnSecondary.disabled = false;
         stopVoiceBtn.disabled = true;
+        retryVoiceBtn.disabled = true;
     }
 }
 
@@ -783,9 +786,12 @@ if (!SpeechRecognition) {
             }, 300);
         } else {
             isRunning = false;
+            voiceLanguage.disabled = false;
+            supportCategory.disabled = false;
             startVoiceBtn.disabled = false;
             startVoiceBtnSecondary.disabled = false;
             stopVoiceBtn.disabled = true;
+            retryVoiceBtn.disabled = true;
             showStatus(t("noSpeech"));
         }
     };
