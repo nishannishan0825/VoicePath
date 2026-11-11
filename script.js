@@ -360,19 +360,15 @@ function startListening() {
     currentAnswer = "";
     answerHandled = false;
 
-    showStatus(
-        voiceLanguage.value === "ar-AE"
-            ? "🎤 يستمع الآن... تحدث الآن."
-            : voiceLanguage.value === "ta-IN"
-                ? "🎤 கேட்கிறது... இப்போது பதில் சொல்லுங்கள்."
-                : "🎤 Listening... Please speak now."
-    );
+    showStatus(voiceLanguage.value === "ta-IN"
+        ? "🎤 கேட்கிறது... இப்போது பதில் சொல்லுங்கள்."
+        : "🎤 " + t("listening"));
 
     try {
         recognition.lang = voiceLanguage.value;
         recognition.start();
     } catch (error) {
-        showStatus("Microphone is busy. Please try again.");
+        showStatus(t("microphoneBusy"));
         isRunning = false;
         startVoiceBtn.disabled = false;
         startVoiceBtnSecondary.disabled = false;
@@ -483,17 +479,21 @@ function handleAnswer(answer) {
     const accepted = saveAnswer(answer);
     if (!accepted) {
         answerHandled = false;
-        const retryMessage = voiceLanguage.value === "ar-AE"
-            ? "عذراً، لم أستطع فهم الجواب بشكل واضح. الرجاء التكرار."
-            : voiceLanguage.value === "ta-IN"
+        const retryMessage = voiceLanguage.value === "ta-IN"
                 ? "மன்னிக்கவும். பதிலை தெளிவாக மீண்டும் சொல்லுங்கள்."
-                : "Sorry, I could not understand that answer. Please say it again.";
+                : t("retryAnswer");
         showStatus(retryMessage);
         speak(retryMessage, startListening);
         return;
     }
 
-    voiceTranscript.textContent = (voiceTranscript.textContent ? voiceTranscript.textContent + "\n" : "") + (currentStep + 1) + ". " + answer;
+    if (voiceTranscript.textContent) {
+        voiceTranscript.appendChild(document.createElement("br"));
+    }
+    const stepNumber = addText(voiceTranscript, "span", (currentStep + 1) + ".");
+    stepNumber.dir = "ltr";
+    voiceTranscript.appendChild(document.createTextNode(" "));
+    voiceTranscript.appendChild(document.createTextNode(answer));
     currentStep++;
 
     if (currentStep < questions[voiceLanguage.value].length) {
@@ -524,12 +524,12 @@ function finishVoiceProfile() {
     startVoiceBtn.disabled = false;
     startVoiceBtnSecondary.disabled = false;
 
-    showStatus("Finding relevant government benefits...");
-    const spokenMessage = voiceLanguage.value === "ar-AE"
-        ? "شكرًا لك. الآن نقارن ملفك مع البرامج الحكومية المتاحة."
-        : voiceLanguage.value === "ta-IN"
+    showStatus(t("findingBenefits"));
+    const spokenMessage = voiceLanguage.value === "ta-IN"
             ? "நன்றி. உங்கள் விவரங்களுடன் பொருந்தக்கூடிய அரசு சேவைகளை சரிபார்க்கிறோம்."
-            : "Thank you. We are checking the services that may match your profile.";
+            : voiceLanguage.value === "ar-AE"
+                ? "شكرًا لك. نتحقق الآن من الخدمات التي قد تناسب ملفك."
+                : t("speechChecking");
     speak(spokenMessage);
     findBenefits();
 }
@@ -634,7 +634,7 @@ function stopVoiceSession() {
     stopVoiceBtn.disabled = true;
     voiceLanguage.disabled = false;
     supportCategory.disabled = false;
-    showStatus("Ready to listen");
+    showStatus(t("readyToListen"));
 }
 
 if (!SpeechRecognition) {
