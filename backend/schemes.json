@@ -97,5 +97,186 @@
     "income_limit_household": 200000,
     "official_source": "https://u.ae/",
     "application_portal": "https://u.ae/"
+  },
+  {
+    "scheme_name": "CDA Social Benefits Services",
+    "category": "financial_assistance",
+    "keywords": ["financial assistance", "social benefits", "social support", "community development"],
+    "description": "Dubai Community Development Authority social-benefit services. Confirm eligibility and application requirements with CDA.",
+    "description_ar": "خدمات المنافع الاجتماعية لدى هيئة تنمية المجتمع في دبي. يرجى التحقق من شروط الأهلية والتقديم لدى الهيئة.",
+    "official_source": "https://www.cda.gov.ae/en/",
+    "application_portal": "https://www.cda.gov.ae/en/"
+  },
+  {
+    "scheme_name": "UAE Zakat Fund Assistance",
+    "category": "financial_assistance",
+    "keywords": ["zakat", "financial assistance", "social support", "low income"],
+    "description": "UAE-wide assistance services from the Zakat Fund, available to applicants who meet its current requirements.",
+    "description_ar": "خدمات مساعدات على مستوى دولة الإمارات يقدمها صندوق الزكاة للمتقدمين المستوفين للشروط الحالية.",
+    "jurisdiction": "United Arab Emirates",
+    "official_source": "https://www.zakatfund.gov.ae/",
+    "application_portal": "https://www.zakatfund.gov.ae/"
+  },
+  {
+    "scheme_name": "MBRHE Housing Grant",
+    "category": "housing",
+    "keywords": ["housing", "grant", "home", "construction", "renovation"],
+    "description": "Housing grant services provided by Mohammed Bin Rashid Housing Establishment. Check the official portal for current eligibility.",
+    "description_ar": "خدمات المنح السكنية التي تقدمها مؤسسة محمد بن راشد للإسكان. يرجى مراجعة البوابة الرسمية لمعرفة شروط الأهلية الحالية.",
+    "official_source": "https://www.mbrhe.gov.ae/",
+    "application_portal": "https://www.mbrhe.gov.ae/"
+  },
+  {
+    "scheme_name": "MBRHE Housing Loan",
+    "category": "housing",
+    "keywords": ["housing", "loan", "home", "construction", "maintenance"],
+    "description": "Housing loan services provided by Mohammed Bin Rashid Housing Establishment. Check the official portal for current eligibility and terms.",
+    "description_ar": "خدمات القروض السكنية التي تقدمها مؤسسة محمد بن راشد للإسكان. يرجى مراجعة البوابة الرسمية لمعرفة الشروط والأهلية الحالية.",
+    "official_source": "https://www.mbrhe.gov.ae/",
+    "application_portal": "https://www.mbrhe.gov.ae/"
+  },
+  {
+    "scheme_name": "Dubai Health Home Healthcare",
+    "category": "healthcare",
+    "keywords": ["healthcare", "home healthcare", "home care", "medical", "nursing"],
+    "description": "Home healthcare information and services from Dubai Health. Service availability and eligibility are determined by the provider.",
+    "description_ar": "معلومات وخدمات الرعاية الصحية المنزلية من دبي الصحية. يحدد مقدم الخدمة مدى توفر الخدمة وشروط الاستفادة منها.",
+    "official_source": "https://dubaihealth.ae/",
+    "application_portal": "https://dubaihealth.ae/"
+  },
+  {
+    "scheme_name": "DHA Treatment Abroad Service",
+    "category": "healthcare",
+    "keywords": ["healthcare", "medical treatment", "treatment abroad", "patient services"],
+    "description": "Dubai Health Authority patient services for treatment-abroad requests. Refer to DHA for eligibility and application steps.",
+    "description_ar": "خدمات هيئة الصحة بدبي لطلبات العلاج خارج الدولة. يرجى الرجوع إلى الهيئة لمعرفة شروط الأهلية وخطوات التقديم.",
+    "official_source": "https://www.dha.gov.ae/",
+    "application_portal": "https://www.dha.gov.ae/"
+  },
+  {
+    "scheme_name": "Hamdan Bin Mohammed Scholarship Programme",
+    "category": "education",
+    "keywords": ["scholarship", "education", "student", "university", "tuition"],
+    "description": "Dubai scholarship programme information for Emirati students. Confirm current application cycles and requirements with KHDA.",
+    "description_ar": "معلومات عن برنامج المنح الدراسية في دبي للطلبة الإماراتيين. يرجى التحقق من مواعيد التقديم والشروط الحالية لدى هيئة المعرفة.",
+    "official_source": "https://www.khda.gov.ae/",
+    "application_portal": "https://www.khda.gov.ae/"
+  },
+  {
+    "scheme_name": "Dubai Schools Programme",
+    "category": "education",
+    "keywords": ["education", "school", "student", "public school", "admission"],
+    "description": "Dubai government school programme information for families. Contact KHDA or the official Dubai Schools channels for admissions and availability.",
+    "description_ar": "معلومات عن برنامج المدارس الحكومية في دبي للعائلات. يرجى التواصل مع هيئة المعرفة أو قنوات مدارس دبي الرسمية لمعرفة القبول والتوفر.",
+    "official_source": "https://www.khda.gov.ae/",
+    "application_portal": "https://www.khda.gov.ae/"
+  },
+  {
+    "scheme_name": "RTA People of Determination nol Card",
+    "category": "people_of_determination",
+    "keywords": ["people of determination", "disability", "nol card", "public transport", "accessibility"],
+    "description": "RTA nol-card information for People of Determination using Dubai public transport. Check RTA for current concessions and application conditions.",
+    "description_ar": "معلومات بطاقة نول من هيئة الطرق والمواصلات لأصحاب الهمم مستخدمي النقل العام في دبي. يرجى مراجعة الهيئة لمعرفة المزايا والشروط الحالية.",
+    "official_source": "https://www.rta.ae/wps/portal/rta/ae/home",
+    "application_portal": "https://www.rta.ae/wps/portal/rta/ae/home"
+  },
+  {
+    "scheme_name": "RTA People of Determination Parking Permit",
+    "category": "people_of_determination",
+    "keywords": ["people of determination", "disability", "parking permit", "accessibility"],
+    "description": "RTA parking-permit services for eligible People of Determination. Confirm documentation and eligibility directly with RTA.",
+    "description_ar": "خدمات تصاريح المواقف من هيئة الطرق والمواصلات لأصحاب الهمم المؤهلين. يرجى التحقق من المستندات وشروط الأهلية لدى الهيئة.",
+    "official_source": "https://www.rta.ae/wps/portal/rta/ae/home",
+    "application_portal": "https://www.rta.ae/wps/portal/rta/ae/home"
+  },
+  {
+    "scheme_name": "CDA Senior Citizens Home Care",
+    "category": "senior_citizens",
+    "keywords": ["senior citizens", "elderly", "home care", "caregiving", "social support"],
+    "description": "Community Development Authority services and support information for senior citizens in Dubai. Check CDA for current service criteria.",
+    "description_ar": "معلومات خدمات ودعم هيئة تنمية المجتمع لكبار المواطنين في دبي. يرجى مراجعة الهيئة لمعرفة شروط الخدمات الحالية.",
+    "official_source": "https://www.cda.gov.ae/en/",
+    "application_portal": "https://www.cda.gov.ae/en/"
+  },
+  {
+    "scheme_name": "Barakatna Senior Citizens Initiative",
+    "category": "senior_citizens",
+    "keywords": ["senior citizens", "elderly", "barakatna", "community support"],
+    "description": "Dubai community support initiative for senior citizens. Confirm participating services and eligibility with the Community Development Authority.",
+    "description_ar": "مبادرة مجتمعية في دبي لدعم كبار المواطنين. يرجى التحقق من الخدمات المشاركة وشروط الأهلية لدى هيئة تنمية المجتمع.",
+    "official_source": "https://www.cda.gov.ae/en/",
+    "application_portal": "https://www.cda.gov.ae/en/"
+  },
+  {
+    "scheme_name": "CDA Family Guidance Services",
+    "category": "family_support",
+    "keywords": ["family support", "family guidance", "counselling", "marriage", "wellbeing"],
+    "description": "Family guidance and counselling services from Dubai Community Development Authority. Contact CDA for service details and access.",
+    "description_ar": "خدمات الإرشاد والاستشارات الأسرية من هيئة تنمية المجتمع في دبي. يرجى التواصل مع الهيئة لمعرفة التفاصيل وكيفية الاستفادة.",
+    "official_source": "https://www.cda.gov.ae/en/",
+    "application_portal": "https://www.cda.gov.ae/en/"
+  },
+  {
+    "scheme_name": "Dubai Foundation for Women and Children Support",
+    "category": "family_support",
+    "keywords": ["family support", "women", "children", "protection", "counselling"],
+    "description": "Support and protection services from the Dubai Foundation for Women and Children. Contact the Foundation for current services and access requirements.",
+    "description_ar": "خدمات الدعم والحماية من مؤسسة دبي لرعاية النساء والأطفال. يرجى التواصل مع المؤسسة لمعرفة الخدمات الحالية وشروط الاستفادة.",
+    "official_source": "https://www.dfwac.ae/",
+    "application_portal": "https://www.dfwac.ae/"
+  },
+  {
+    "scheme_name": "Dubai Careers Government Opportunities",
+    "category": "employment",
+    "keywords": ["employment", "jobs", "government careers", "recruitment", "training"],
+    "description": "Official portal for exploring career opportunities across Dubai government entities. Vacancies and requirements vary by role.",
+    "description_ar": "البوابة الرسمية لاستكشاف الفرص الوظيفية لدى الجهات الحكومية في دبي. تختلف الوظائف والشروط بحسب كل وظيفة.",
+    "official_source": "https://www.dubaicareers.ae/",
+    "application_portal": "https://www.dubaicareers.ae/"
+  },
+  {
+    "scheme_name": "Dubai SME Business Support",
+    "category": "employment",
+    "keywords": ["employment", "entrepreneurship", "small business", "training", "business support"],
+    "description": "Dubai SME information and support for entrepreneurs and small businesses. Check Dubai's Department of Economy and Tourism for current programmes.",
+    "description_ar": "معلومات ودعم دبي للمشاريع لرواد الأعمال والمشاريع الصغيرة. يرجى مراجعة دائرة الاقتصاد والسياحة بدبي لمعرفة البرامج الحالية.",
+    "official_source": "https://www.dubaidet.gov.ae/en/",
+    "application_portal": "https://www.dubaidet.gov.ae/en/"
+  },
+  {
+    "scheme_name": "RTA Student nol Card",
+    "category": "transport_and_utilities",
+    "keywords": ["transport", "student", "nol card", "public transport", "fare"],
+    "description": "RTA nol-card options for students using Dubai public transport. Check RTA for current fares, eligibility and application steps.",
+    "description_ar": "خيارات بطاقة نول من هيئة الطرق والمواصلات للطلاب مستخدمي النقل العام في دبي. يرجى مراجعة الهيئة لمعرفة الأسعار والأهلية وخطوات التقديم.",
+    "official_source": "https://www.rta.ae/wps/portal/rta/ae/home",
+    "application_portal": "https://www.rta.ae/wps/portal/rta/ae/home"
+  },
+  {
+    "scheme_name": "DEWA Shams Dubai",
+    "category": "transport_and_utilities",
+    "keywords": ["utilities", "dewa", "solar", "electricity", "renewable energy"],
+    "description": "DEWA's Shams Dubai initiative for connecting eligible photovoltaic systems to the grid. Check DEWA for current requirements and application details.",
+    "description_ar": "مبادرة شمس دبي من هيئة كهرباء ومياه دبي لربط أنظمة الطاقة الشمسية المؤهلة بالشبكة. يرجى مراجعة الهيئة لمعرفة المتطلبات والتفاصيل الحالية.",
+    "official_source": "https://www.dewa.gov.ae/",
+    "application_portal": "https://www.dewa.gov.ae/"
+  },
+  {
+    "scheme_name": "DubaiNow Government Services",
+    "category": "government_services",
+    "keywords": ["government services", "dubainow", "digital services", "payments", "documents"],
+    "description": "Digital Dubai's DubaiNow platform provides access to participating government and city services. Available services depend on the relevant entity.",
+    "description_ar": "تتيح منصة دبي الآن التابعة لدبي الرقمية الوصول إلى خدمات حكومية وخدمات للمدينة. يختلف توفر الخدمات بحسب الجهة المعنية.",
+    "official_source": "https://www.digitaldubai.ae/apps-services",
+    "application_portal": "https://www.digitaldubai.ae/apps-services"
+  },
+  {
+    "scheme_name": "Dubai REST Digital Real Estate Services",
+    "category": "government_services",
+    "keywords": ["government services", "real estate", "dubai rest", "property", "documents"],
+    "description": "Dubai Land Department's Dubai REST platform for digital real-estate services. Check the Department for current services and transaction requirements.",
+    "description_ar": "منصة دبي ريست التابعة لدائرة الأراضي والأملاك بدبي للخدمات العقارية الرقمية. يرجى مراجعة الدائرة لمعرفة الخدمات ومتطلبات المعاملات الحالية.",
+    "official_source": "https://dubailand.gov.ae/en/eservices/",
+    "application_portal": "https://dubailand.gov.ae/en/eservices/"
   }
 ]

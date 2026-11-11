@@ -1,7 +1,7 @@
 ﻿// ==========================================
 // 🌐 GLOBAL CONFIGURATION: LOCALHOST BACKEND
 // ==========================================
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = window.location.origin;
 
 // DOM Element Selectors
 const startVoiceBtn = document.getElementById("startVoiceBtn");
@@ -45,7 +45,7 @@ const translations = {
         exploreBenefits: "استكشف المزايا الحكومية",
         heroImageAlt: "أفق دبي وخدمات المدينة",
         availableServices: "الخدمات المتاحة",
-        curatedProgrammes: "أكثر من ١٢ برنامجاً مختاراً",
+        curatedProgrammes: "٣٠ برنامجاً وخدمة حكومية",
         voiceAssistant: "المساعد الصوتي",
         startConversation: "ابدأ المحادثة",
         supportCategory: "فئة الدعم",
@@ -87,7 +87,7 @@ const translations = {
         otherServicesDescription: "إرشادات الإقامة والتأشيرات والهوية والخدمات الحكومية العامة.",
         explore: "استكشف",
         featuredServices: "خدمات حكومية مختارة",
-        selectedProgrammes: "برامج وخدمات عامة مختارة",
+        selectedProgrammes: "البرامج والخدمات الحكومية",
         sanadCard: "بطاقة سند ودعم أصحاب الهمم",
         sanadAuthority: "الجهة المسؤولة: دبي / مؤسسة محمد بن راشد للإسكان",
         sanadDescription: "دعم لأصحاب الهمم المؤهلين، بما في ذلك خدمات إمكانية الوصول وإعادة التأهيل والخدمات ذات الصلة.",
@@ -160,8 +160,92 @@ const arabicResultText = {
     "senior_citizens": "كبار المواطنين",
     "family_support": "دعم الأسرة",
     "education": "التعليم",
-    "healthcare": "الرعاية الصحية"
+    "healthcare": "الرعاية الصحية",
+    "housing": "الإسكان",
+    "employment": "التوظيف",
+    "transport_and_utilities": "النقل والمرافق",
+    "government_services": "الخدمات الحكومية",
+    "CDA Social Benefits Services": "خدمات المنافع الاجتماعية لهيئة تنمية المجتمع",
+    "UAE Zakat Fund Assistance": "مساعدات صندوق الزكاة الإماراتي",
+    "MBRHE Housing Grant": "منحة الإسكان من مؤسسة محمد بن راشد للإسكان",
+    "MBRHE Housing Loan": "قرض الإسكان من مؤسسة محمد بن راشد للإسكان",
+    "Dubai Health Home Healthcare": "الرعاية الصحية المنزلية من دبي الصحية",
+    "DHA Treatment Abroad Service": "خدمة العلاج خارج الدولة من هيئة الصحة بدبي",
+    "Hamdan Bin Mohammed Scholarship Programme": "برنامج حمدان بن محمد للمنح الدراسية",
+    "Dubai Schools Programme": "برنامج مدارس دبي",
+    "RTA People of Determination nol Card": "بطاقة نول لأصحاب الهمم من هيئة الطرق والمواصلات",
+    "RTA People of Determination Parking Permit": "تصريح مواقف أصحاب الهمم من هيئة الطرق والمواصلات",
+    "CDA Senior Citizens Home Care": "الرعاية المنزلية لكبار المواطنين من هيئة تنمية المجتمع",
+    "Barakatna Senior Citizens Initiative": "مبادرة بركتنا لكبار المواطنين",
+    "CDA Family Guidance Services": "خدمات الإرشاد الأسري لهيئة تنمية المجتمع",
+    "Dubai Foundation for Women and Children Support": "دعم مؤسسة دبي لرعاية النساء والأطفال",
+    "Dubai Careers Government Opportunities": "الفرص الوظيفية الحكومية عبر دبي للوظائف",
+    "Dubai SME Business Support": "دعم المشاريع الصغيرة والمتوسطة في دبي",
+    "RTA Student nol Card": "بطاقة نول للطلاب من هيئة الطرق والمواصلات",
+    "DEWA Shams Dubai": "مبادرة شمس دبي من هيئة كهرباء ومياه دبي",
+    "DubaiNow Government Services": "خدمات دبي الآن الحكومية",
+    "Dubai REST Digital Real Estate Services": "خدمات دبي ريست العقارية الرقمية",
+    "Financial assistance and social support in Dubai": "مساعدات مالية ودعم اجتماعي في دبي",
+    "Housing support and services in Dubai": "خدمات ودعم الإسكان في دبي",
+    "Healthcare services in Dubai": "خدمات الرعاية الصحية في دبي",
+    "Education services in Dubai": "خدمات التعليم في دبي",
+    "Accessibility and support services in Dubai": "خدمات الإتاحة والدعم في دبي",
+    "Senior citizens support services in Dubai": "خدمات دعم كبار المواطنين في دبي",
+    "Family support services in Dubai": "خدمات دعم الأسرة في دبي",
+    "Employment and business support in Dubai": "خدمات التوظيف ودعم الأعمال في دبي",
+    "Transport and utility services in Dubai": "خدمات النقل والمرافق في دبي",
+    "Dubai government digital services": "الخدمات الحكومية الرقمية في دبي"
 };
+
+const categoryLabels = {
+    financial_assistance: "Financial Assistance",
+    housing: "Housing Support",
+    healthcare: "Healthcare",
+    education: "Education",
+    people_of_determination: "People of Determination",
+    senior_citizens: "Senior Citizens",
+    family_support: "Family Support",
+    employment: "Employment",
+    transport_and_utilities: "Transportation and Utilities",
+    government_services: "Other Government Services"
+};
+const arabicCategoryLabels = {
+    financial_assistance: "المساعدات المالية",
+    housing: "دعم الإسكان",
+    healthcare: "الرعاية الصحية",
+    education: "التعليم",
+    people_of_determination: "أصحاب الهمم",
+    senior_citizens: "كبار المواطنين",
+    family_support: "دعم الأسرة",
+    employment: "التوظيف",
+    transport_and_utilities: "النقل والمرافق",
+    government_services: "خدمات حكومية أخرى"
+};
+const categoryDescriptions = {
+    financial_assistance: "Financial assistance and social support in Dubai",
+    housing: "Housing support and services in Dubai",
+    healthcare: "Healthcare services in Dubai",
+    education: "Education services in Dubai",
+    people_of_determination: "Accessibility and support services in Dubai",
+    senior_citizens: "Senior citizens support services in Dubai",
+    family_support: "Family support services in Dubai",
+    employment: "Employment and business support in Dubai",
+    transport_and_utilities: "Transport and utility services in Dubai",
+    government_services: "Dubai government digital services"
+};
+const arabicCategoryDescriptions = {
+    financial_assistance: "مساعدات مالية ودعم اجتماعي في دبي",
+    housing: "خدمات ودعم الإسكان في دبي",
+    healthcare: "خدمات الرعاية الصحية في دبي",
+    education: "خدمات التعليم في دبي",
+    people_of_determination: "خدمات الإتاحة والدعم في دبي",
+    senior_citizens: "خدمات دعم كبار المواطنين في دبي",
+    family_support: "خدمات دعم الأسرة في دبي",
+    employment: "خدمات التوظيف ودعم الأعمال في دبي",
+    transport_and_utilities: "خدمات النقل والمرافق في دبي",
+    government_services: "الخدمات الحكومية الرقمية في دبي"
+};
+let catalogueSchemes = [];
 
 const defaultUiText = new Map(
     Array.from(document.querySelectorAll("[data-i18n]"))
@@ -294,8 +378,88 @@ function renderResultsHTML(schemes) {
     });
 }
 
+function renderSchemeCatalogue(schemes) {
+    const grid = document.getElementById("schemeGrid");
+    if (!grid) return;
+
+    grid.replaceChildren();
+    const isArabic = voiceLanguage.value === "ar-AE";
+
+    schemes.forEach((scheme) => {
+        const card = document.createElement("article");
+        card.className = "service-card";
+
+        const header = document.createElement("div");
+        header.className = "service-head";
+
+        const category = document.createElement("p");
+        category.className = "service-tag";
+        category.textContent = (isArabic ? arabicCategoryLabels : categoryLabels)[scheme.category] || scheme.category;
+        category.dir = "auto";
+        header.appendChild(category);
+
+        const title = document.createElement("h4");
+        title.textContent = isArabic
+            ? (arabicResultText[scheme.scheme_name] || scheme.scheme_name || "خدمة حكومية")
+            : (scheme.scheme_name || "Government service");
+        title.dir = "auto";
+        header.appendChild(title);
+        card.appendChild(header);
+
+        const description = document.createElement("p");
+        description.textContent = isArabic
+            ? (scheme.description_ar || arabicCategoryDescriptions[scheme.category] || arabicCategoryDescriptions.government_services)
+            : (scheme.description || categoryDescriptions[scheme.category] || categoryDescriptions.government_services);
+        description.dir = "auto";
+        card.appendChild(description);
+
+        if (scheme.official_source) {
+            const source = document.createElement("a");
+            source.href = scheme.official_source;
+            source.textContent = isArabic ? "المصدر الرسمي" : "Official source";
+            source.target = "_blank";
+            source.rel = "noopener noreferrer";
+            source.dir = "auto";
+            card.appendChild(source);
+        }
+
+        grid.appendChild(card);
+    });
+}
+
+async function loadSchemeCatalogue() {
+    const grid = document.getElementById("schemeGrid");
+    if (!grid) return;
+
+    try {
+        const response = await fetch(`${API_URL}/schemes`);
+        if (!response.ok) {
+            throw new Error(`Scheme catalogue request failed (${response.status}).`);
+        }
+
+        const data = await response.json();
+        if (!Array.isArray(data.schemes)) {
+            throw new Error("The scheme catalogue response is not a list.");
+        }
+
+        catalogueSchemes = data.schemes;
+        renderSchemeCatalogue(catalogueSchemes);
+    } catch (error) {
+        console.error("Could not load scheme catalogue:", error);
+        grid.replaceChildren();
+        const message = document.createElement("p");
+        message.textContent = voiceLanguage.value === "ar-AE"
+            ? "تعذر تحميل البرامج. يرجى المحاولة لاحقاً."
+            : "Could not load government programmes. Please try again later.";
+        message.setAttribute("role", "alert");
+        grid.appendChild(message);
+    }
+}
+
 voiceLanguage.addEventListener("change", () => {
     applyLanguage();
     if (Array.isArray(latestResults)) renderResultsHTML(latestResults);
+    if (catalogueSchemes.length) renderSchemeCatalogue(catalogueSchemes);
 });
 applyLanguage();
+loadSchemeCatalogue();

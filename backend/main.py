@@ -204,6 +204,9 @@ def get_requested_categories(support):
         ],
     }
 
+    if support_text in category_map:
+        return [support_text]
+
     categories = []
     for category, keywords in category_map.items():
         if any(keyword in support_text for keyword in keywords):
@@ -212,6 +215,11 @@ def get_requested_categories(support):
 
 
 def is_supported_by_profile(profile, scheme):
+    scheme_category = normalize_text(scheme.get("category", ""))
+    selected_category = normalize_text(profile.support_category or profile.support_needed)
+    if selected_category == scheme_category:
+        return True
+
     keywords = [
         str(scheme.get("category", "")),
         *[str(keyword).lower() for keyword in scheme.get("keywords", [])],

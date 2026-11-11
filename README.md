@@ -35,5 +35,4 @@ Dubai and the United Arab Emirates
    http://127.0.0.1:8000
 
 ## Notes
-The matching engine is intentionally designed as a preliminary eligibility checker. Final eligibility, deadlines, and application processes should be confirmed with the official government source or portal.
-
+The scheme catalogue is maintained in `schemes.json` and mirrored in `backend/schemes.json`. It includes Dubai and UAE government programmes and public services with official authority links. The matching engine is only a preliminary guide; confirm eligibility, deadlines, and application processes with the relevant official source.
