@@ -48,7 +48,9 @@ select {
     max-width: 100%;
 }
 
-[dir] {
+[dir="auto"]:not(html),
+[dir="ltr"]:not(html),
+[dir="rtl"]:not(html) {
     unicode-bidi: isolate;
 }
 
@@ -235,6 +237,16 @@ html[lang="ar-AE"] .hero-copy h1 {
     font-weight: 600;
 }
 
+.primary-btn,
+.secondary-btn,
+.secondary-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    line-height: 1.35;
+}
+
 .primary-btn:hover,
 .secondary-btn:hover,
 .mic-button:hover,
@@ -261,7 +273,7 @@ html[lang="ar-AE"] .hero-copy h1 {
 .hero-panel {
     position: absolute;
     inset-inline-end: 26px;
-    bottom: 26px;
+    inset-block-end: 26px;
     background: rgba(255, 255, 255, 0.96);
     border: 1px solid var(--soft-border);
     padding: 14px 18px;
@@ -282,7 +294,7 @@ html[lang="ar-AE"] .hero-copy h1 {
 }
 
 .voice-panel {
-    padding: 32px 0 8px;
+    padding: 36px 0 16px;
 }
 
 .voice-layout {
@@ -495,7 +507,7 @@ html[lang="ar-AE"] .hero-copy h1 {
 }
 
 .service-head {
-    border-bottom: 1px solid var(--soft-border);
+    border-block-end: 1px solid var(--soft-border);
     padding-bottom: 16px;
     margin-bottom: 16px;
 }
@@ -623,6 +635,14 @@ html[lang="ar-AE"] .hero-copy h1 {
         grid-template-columns: 1fr;
     }
 
+    .header-inner {
+        gap: 14px;
+    }
+
+    .main-nav {
+        gap: 14px;
+    }
+
     .hero-visual img {
         height: 420px;
     }
@@ -655,13 +675,6 @@ html[lang="ar-AE"] .hero-copy h1 {
     .assistant-actions {
         flex-direction: column;
         align-items: stretch;
-    }
-
-    .primary-btn,
-    .secondary-btn,
-    .secondary-link {
-        min-height: 52px;
-        line-height: 1.35;
     }
 
     .primary-btn,
