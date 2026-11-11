@@ -1,0 +1,101 @@
+
+[
+  {
+    "scheme_name": "Sanad Card and Disability Support",
+    "category": "people_of_determination",
+    "keywords": ["sanad", "disability", "people of determination", "accessibility", "rehabilitation"],
+    "eligible_nationalities": ["uae national", "uae resident", "gcc national"],
+    "required_residency": "uae resident",
+    "requires_disability": true,
+    "minimum_disability_percentage": 20,
+    "emirates": ["dubai"],
+    "official_source": "https://www.mbrhe.gov.ae/",
+    "application_portal": "https://www.mbrhe.gov.ae/"
+  },
+  {
+    "scheme_name": "ENAYA Healthcare Support",
+    "category": "healthcare",
+    "keywords": ["enaya", "healthcare", "medical", "homecare", "care"],
+    "eligible_nationalities": ["uae national", "uae resident"],
+    "requires_healthcare_need": true,
+    "official_source": "https://www.dha.gov.ae/",
+    "application_portal": "https://www.dha.gov.ae/"
+  },
+  {
+    "scheme_name": "Thukher Card and Senior Support",
+    "category": "senior_citizens",
+    "keywords": ["thukher", "senior", "elder", "care", "social support"],
+    "eligible_nationalities": ["uae national", "uae resident"],
+    "requires_senior_citizen": true,
+    "minimum_age": 60,
+    "emirates": ["dubai"],
+    "official_source": "https://www.dubai.ae/",
+    "application_portal": "https://www.dubai.ae/"
+  },
+  {
+    "scheme_name": "Dubai Housing Assistance",
+    "category": "housing",
+    "keywords": ["housing", "home", "rent", "mortgage", "construction", "renovation"],
+    "eligible_nationalities": ["uae national", "uae resident"],
+    "required_residency": "uae resident",
+    "requires_housing_need": true,
+    "income_limit_household": 300000,
+    "emirates": ["dubai"],
+    "official_source": "https://www.mbrhe.gov.ae/",
+    "application_portal": "https://www.mbrhe.gov.ae/"
+  },
+  {
+    "scheme_name": "Education Scholarship and Tuition Support",
+    "category": "education",
+    "keywords": ["scholarship", "education", "student", "tuition", "school", "university"],
+    "eligible_nationalities": ["uae national", "uae resident"],
+    "requires_student": true,
+    "income_limit_household": 250000,
+    "official_source": "https://www.moe.gov.ae/",
+    "application_portal": "https://www.moe.gov.ae/"
+  },
+  {
+    "scheme_name": "Nafis Employment Support",
+    "category": "employment",
+    "keywords": ["nafis", "employment", "job", "training", "entrepreneurship"],
+    "eligible_nationalities": ["uae national", "uae resident", "gcc national"],
+    "required_residency": "uae resident",
+    "official_source": "https://www.mohre.gov.ae/",
+    "application_portal": "https://www.mohre.gov.ae/"
+  },
+  {
+    "scheme_name": "DEWA Utility and Concession Support",
+    "category": "transport_and_utilities",
+    "keywords": ["dewa", "utility", "electricity", "water", "discount", "concession"],
+    "eligible_nationalities": ["uae national", "uae resident"],
+    "income_limit_monthly": 12000,
+    "official_source": "https://www.dewa.gov.ae/",
+    "application_portal": "https://www.dewa.gov.ae/"
+  },
+  {
+    "scheme_name": "Dubai Weddings and Family Support",
+    "category": "family_support",
+    "keywords": ["family", "marriage", "wedding", "children", "women support"],
+    "eligible_nationalities": ["uae national", "uae resident"],
+    "required_residency": "uae resident",
+    "official_source": "https://www.dubai.ae/",
+    "application_portal": "https://www.dubai.ae/"
+  },
+  {
+    "scheme_name": "RTA Senior and Disability Transport Concessions",
+    "category": "transport_and_utilities",
+    "keywords": ["rta", "transport", "disability", "senior", "parking"],
+    "eligible_nationalities": ["uae national", "uae resident"],
+    "official_source": "https://www.rta.ae/",
+    "application_portal": "https://www.rta.ae/"
+  },
+  {
+    "scheme_name": "Financial Assistance and Social Welfare",
+    "category": "financial_assistance",
+    "keywords": ["benefit", "cash support", "financial assistance", "low income", "social welfare"],
+    "eligible_nationalities": ["uae national", "uae resident"],
+    "income_limit_household": 200000,
+    "official_source": "https://u.ae/",
+    "application_portal": "https://u.ae/"
+  }
+]

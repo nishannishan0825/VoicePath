@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VoicePath Dubai helps residents explore government benefits and services through a simple voice-first experience.">
+    <title>VoicePath Dubai | Government Support</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand" aria-label="VoicePath Dubai home">
+                <span class="brand-mark">V</span>
+                <span class="brand-text">VoicePath Dubai</span>
+            </div>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="#home">Home</a>
+                <a href="#discover">Discover Benefits</a>
+                <a href="#services">Government Services</a>
+                <a href="#about">About</a>
+                <a href="#help">Help</a>
+            </nav>
+
+            <label class="language-switch" for="voiceLanguage">
+                <span>Language</span>
+                <select id="voiceLanguage" aria-label="Select language">
+                    <option value="en-AE" selected>English</option>
+                    <option value="ar-AE">العربية</option>
+                    <option value="ta-IN">தமிழ்</option>
+                </select>
+            </label>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="container hero-inner">
+                <div class="hero-copy">
+                    <p class="eyebrow">Dubai and UAE support services</p>
+                    <h1>Government Support, Made Simple.</h1>
+                    <h2 lang="ar">خدمات الدعم الحكومي، أصبحت أسهل.</h2>
+                    <p class="lead">Discover government benefits and services that may be available to you through a simple voice-first experience.</p>
+                    <div class="hero-actions">
+                        <button type="button" class="primary-btn" id="startVoiceBtn">Talk to VoicePath</button>
+                        <a class="secondary-link" href="#discover">Explore Government Benefits</a>
+                    </div>
+                </div>
+
+                <div class="hero-visual" aria-label="Dubai skyline overview">
+                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80" alt="Dubai skyline and public service cityscape" />
+                    <div class="hero-panel">
+                        <p>Available services</p>
+                        <strong>12+ curated programmes</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="voice-panel" id="discover">
+            <div class="container voice-layout">
+                <div class="assistant-panel">
+                    <div class="assistant-header">
+                        <div>
+                            <p class="eyebrow">Voice assistant</p>
+                            <h3>Start your conversation</h3>
+                        </div>
+                        <div class="language-inline">
+                            <label for="supportCategory" class="sr-only">Support category</label>
+                            <select id="supportCategory" aria-label="Support category">
+                                <option value="housing">Housing Support</option>
+                                <option value="education">Education</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="employment">Employment</option>
+                                <option value="people_of_determination">People of Determination</option>
+                                <option value="senior_citizens">Senior Citizens</option>
+                                <option value="family_support">Family Support</option>
+                                <option value="financial_assistance">Financial Assistance</option>
+                                <option value="transport_and_utilities">Transportation</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="button" class="mic-button" id="micButton" aria-label="Start voice assistant">
+                        <span class="mic-icon">◉</span>
+                    </button>
+
+                    <div class="assistant-actions">
+                        <button type="button" class="primary-btn" id="startVoiceBtnSecondary">Start Conversation</button>
+                        <button type="button" class="secondary-btn" id="stopVoiceBtn">Stop Conversation</button>
+                        <button type="button" class="secondary-btn muted" id="retryVoiceBtn">Retry Microphone</button>
+                    </div>
+
+                    <div class="status-box" aria-live="polite">
+                        <p id="voiceStatus">Ready to listen</p>
+                    </div>
+
+                    <div class="transcript-box">
+                        <h4>Recognised speech</h4>
+                        <p id="voiceTranscript">Your spoken answers will appear here.</p>
+                    </div>
+                </div>
+
+                <aside class="info-card" id="about">
+                    <p class="eyebrow">How it works</p>
+                    <h3>Find relevant support quickly</h3>
+                    <ol class="step-list">
+                        <li><span>01</span><div><strong>Tell us about yourself.</strong><p>Share your situation in English, Arabic, or Tamil.</p></div></li>
+                        <li><span>02</span><div><strong>VoicePath checks programmes.</strong><p>Relevant Dubai and UAE schemes are matched against your profile.</p></div></li>
+                        <li><span>03</span><div><strong>Review recommendations.</strong><p>Explore preliminary matches and official application links.</p></div></li>
+                    </ol>
+                </aside>
+            </div>
+        </section>
+
+        <section class="categories section-spacing" id="services">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Benefits categories</p>
+                    <h3>Government services you may need</h3>
+                </div>
+
+                <div class="category-grid">
+                    <article class="category-card">
+                        <span class="category-icon" aria-hidden="true">▣</span>
+                        <h4>Financial Assistance</h4>
+                        <p>Short-term support, cash assistance and social welfare options.</p>
+                        <a href="#featured">Explore</a>
+                    </article>
+                    <article class="category-card">
+                        <span class="category-icon" aria-hidden="true">⌂</span>
+                        <h4>Housing Support</h4>
+                        <p>Home, rent and renovation-related government assistance.</p>
+                        <a href="#featured">Explore</a>
+                    </article>
+                    <article class="category-card">
+                        <span class="category-icon" aria-hidden="true">✚</span>
+                        <h4>Healthcare</h4>
+                        <p>Medical support, home care and public health services.</p>
+                        <a href="#featured">Explore</a>
+                    </article>
+                    <article class="category-card">
+                        <span class="category-icon" aria-hidden="true">◫</span>
+                        <h4>Education</h4>
+                        <p>Scholarships, tuition assistance and student support.</p>
+                        <a href="#featured">Explore</a>
+                    </article>
+                    <article class="category-card">
+                        <span class="category-icon" aria-hidden="true">♿</span>
+                        <h4>People of Determination</h4>
+                        <p>Disability support, rehabilitation and public accessibility options.</p>
+                        <a href="#featured">Explore</a>
+                    </article>
+                    <article class="category-card">
+                        <span class="category-icon" aria-hidden="true">◌</span>
+                        <h4>Senior Citizens</h4>
+                        <p>Age-related support, healthcare and community services.</p>
+                        <a href="#featured">Explore</a>
+                    </article>
+                    <article class="category-card">
+                        <span class="category-icon" aria-hidden="true">❖</span>
+                        <h4>Family Support</h4>
+                        <p>Marriage, family wellbeing and child support services.</p>
+                        <a href="#featured">Explore</a>
+                    </article>
+                    <article class="category-card">
+                        <span class="category-icon" aria-hidden="true">◍</span>
+                        <h4>Employment</h4>
+                        <p>Job matching, training and UAE employment initiatives.</p>
+                        <a href="#featured">Explore</a>
+                    </article>
+                    <article class="category-card">
+                        <span class="category-icon" aria-hidden="true">⇄</span>
+                        <h4>Transportation</h4>
+                        <p>RTA concessions, public transport and utility support.</p>
+                        <a href="#featured">Explore</a>
+                    </article>
+                    <article class="category-card">
+                        <span class="category-icon" aria-hidden="true">✦</span>
+                        <h4>Other Government Services</h4>
+                        <p>Residency, visa, identity and broader public administration guidance.</p>
+                        <a href="#featured">Explore</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured section-spacing" id="featured">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Featured government services</p>
+                    <h3>Selected programmes and public services</h3>
+                </div>
+
+                <div class="service-grid">
+                    <article class="service-card">
+                        <div class="service-head">
+                            <p class="service-tag">Dubai</p>
+                            <h4>Sanad Card and Disability Support</h4>
+                            <h5 lang="ar">بطاقة سند والدعم للأشخاص ذوي الإعاقة</h5>
+                        </div>
+                        <p class="service-authority">Responsible authority: Dubai / Mohammed Bin Rashid Housing Establishment</p>
+                        <p>Support for eligible People of Determination, including accessibility, rehabilitation and related services.</p>
+                        <span class="beneficiary">Beneficiary: People of Determination</span>
+                        <a href="https://www.mbrhe.gov.ae/" target="_blank" rel="noreferrer">Official application link</a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-head">
+                            <p class="service-tag">Dubai</p>
+                            <h4>Thukher Card and Senior Support</h4>
+                            <h5 lang="ar">بطاقة ثخير والدعم لكبار السن</h5>
+                        </div>
+                        <p class="service-authority">Responsible authority: Dubai Government</p>
+                        <p>Age-focused programmes supporting senior residents with community and health-related assistance.</p>
+                        <span class="beneficiary">Beneficiary: Senior citizens</span>
+                        <a href="https://www.dubai.ae/" target="_blank" rel="noreferrer">Official application link</a>
+                    </article>
+
+                    <article class="service-card">
+                        <div class="service-head">
+                            <p class="service-tag">UAE</p>
+                            <h4>ENAYA Healthcare Support</h4>
+                            <h5 lang="ar">دعم برنامج إعانة للرعاية الصحية</h5>
+                        </div>
+                        <p class="service-authority">Responsible authority: Dubai Health Authority</p>
+                        <p>Healthcare-related programmes for eligible residents and vulnerable populations.</p>
+                        <span class="beneficiary">Beneficiary: Healthcare needs</span>
+                        <a href="https://www.dha.gov.ae/" target="_blank" rel="noreferrer">Official application link</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="results-section section-spacing" id="results" aria-live="polite"></section>
+    </main>
+
+    <footer class="site-footer" id="help">
+        <div class="container footer-grid">
+            <div>
+                <h4>About VoicePath</h4>
+                <p>VoicePath is an independent government-services discovery prototype and is not an official Government of Dubai website.</p>
+            </div>
+            <div>
+                <h4>Policies</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">Official government information sources</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+</html>
+
