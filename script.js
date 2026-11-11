@@ -189,6 +189,13 @@ const defaultTranslations = new Map(
         .map((element) => [element.dataset.i18n, element.textContent])
 );
 const englishMessages = {
+    brandHome: "VoicePath Dubai home",
+    heroVisualLabel: "Dubai skyline overview",
+    navLabel: "Main navigation",
+    selectLanguage: "Select language",
+    supportCategory: "Support category",
+    startVoiceAssistant: "Start voice assistant",
+    heroImageAlt: "Dubai skyline and public service cityscape",
     readyStatus: "Ready to listen",
     listening: "Listening... Please speak now.",
     microphoneBusy: "Microphone is busy. Please try again.",
