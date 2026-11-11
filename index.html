@@ -1,32 +1,35 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AE" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="VoicePath Dubai helps residents explore government benefits and services through a simple voice-first experience.">
     <title>VoicePath Dubai | Government Support</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
     <header class="site-header">
         <div class="container header-inner">
-            <div class="brand" aria-label="VoicePath Dubai home">
+            <div class="brand" aria-label="VoicePath Dubai home" dir="ltr">
                 <span class="brand-mark">V</span>
                 <span class="brand-text">VoicePath Dubai</span>
             </div>
 
-            <nav class="main-nav" aria-label="Main navigation">
-                <a href="#home">Home</a>
-                <a href="#discover">Discover Benefits</a>
-                <a href="#services">Government Services</a>
-                <a href="#about">About</a>
-                <a href="#help">Help</a>
+            <nav class="main-nav" aria-label="Main navigation" data-i18n-aria="navLabel">
+                <a href="#home" data-i18n="navHome">Home</a>
+                <a href="#discover" data-i18n="navDiscover">Discover Benefits</a>
+                <a href="#services" data-i18n="navServices">Government Services</a>
+                <a href="#about" data-i18n="navAbout">About</a>
+                <a href="#help" data-i18n="navHelp">Help</a>
             </nav>
 
             <label class="language-switch" for="voiceLanguage">
-                <span>Language</span>
-                <select id="voiceLanguage" aria-label="Select language">
+                <span data-i18n="language">Language</span>
+                <select id="voiceLanguage" aria-label="Select language" data-i18n-aria="selectLanguage" dir="auto">
                     <option value="en-AE" selected>English</option>
                     <option value="ar-AE">العربية</option>
                     <option value="ta-IN">தமிழ்</option>
@@ -39,21 +42,20 @@
         <section class="hero" id="home">
             <div class="container hero-inner">
                 <div class="hero-copy">
-                    <p class="eyebrow">Dubai and UAE support services</p>
-                    <h1>Government Support, Made Simple.</h1>
-                    <h2 lang="ar">خدمات الدعم الحكومي، أصبحت أسهل.</h2>
-                    <p class="lead">Discover government benefits and services that may be available to you through a simple voice-first experience.</p>
+                    <p class="eyebrow" data-i18n="heroEyebrow">Dubai and UAE support services</p>
+                    <h1 data-i18n="heroTitle">Government Support, Made Simple.</h1>
+                    <p class="lead" data-i18n="heroLead">Discover government benefits and services that may be available to you through a simple voice-first experience.</p>
                     <div class="hero-actions">
-                        <button type="button" class="primary-btn" id="startVoiceBtn">Talk to VoicePath</button>
-                        <a class="secondary-link" href="#discover">Explore Government Benefits</a>
+                        <button type="button" class="primary-btn" id="startVoiceBtn" data-i18n="talkToVoicePath">Talk to VoicePath</button>
+                        <a class="secondary-link" href="#discover" data-i18n="exploreBenefits">Explore Government Benefits</a>
                     </div>
                 </div>
 
                 <div class="hero-visual" aria-label="Dubai skyline overview">
-                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80" alt="Dubai skyline and public service cityscape" />
+                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80" alt="Dubai skyline and public service cityscape" data-i18n-alt="heroImageAlt" />
                     <div class="hero-panel">
-                        <p>Available services</p>
-                        <strong>12+ curated programmes</strong>
+                        <p data-i18n="availableServices">Available services</p>
+                        <strong dir="auto" data-i18n="curatedProgrammes">12+ curated programmes</strong>
                     </div>
                 </div>
             </div>
@@ -64,52 +66,53 @@
                 <div class="assistant-panel">
                     <div class="assistant-header">
                         <div>
-                            <p class="eyebrow">Voice assistant</p>
-                            <h3>Start your conversation</h3>
+                            <p class="eyebrow" data-i18n="voiceAssistant">Voice assistant</p>
+                            <h3 data-i18n="startConversation">Start your conversation</h3>
                         </div>
                         <div class="language-inline">
-                            <label for="supportCategory" class="sr-only">Support category</label>
-                            <select id="supportCategory" aria-label="Support category">
-                                <option value="housing">Housing Support</option>
-                                <option value="education">Education</option>
-                                <option value="healthcare">Healthcare</option>
-                                <option value="employment">Employment</option>
-                                <option value="people_of_determination">People of Determination</option>
-                                <option value="senior_citizens">Senior Citizens</option>
-                                <option value="family_support">Family Support</option>
-                                <option value="financial_assistance">Financial Assistance</option>
-                                <option value="transport_and_utilities">Transportation</option>
+                            <label for="supportCategory" class="sr-only" data-i18n="supportCategory">Support category</label>
+                            <select id="supportCategory" aria-label="Support category" data-i18n-aria="supportCategory" dir="auto">
+                                <option value="housing" data-i18n="housingSupport">Housing Support</option>
+                                <option value="education" data-i18n="education">Education</option>
+                                <option value="healthcare" data-i18n="healthcare">Healthcare</option>
+                                <option value="employment" data-i18n="employment">Employment</option>
+                                <option value="people_of_determination" data-i18n="peopleOfDetermination">People of Determination</option>
+                                <option value="senior_citizens" data-i18n="seniorCitizens">Senior Citizens</option>
+                                <option value="family_support" data-i18n="familySupport">Family Support</option>
+                                <option value="financial_assistance" data-i18n="financialAssistance">Financial Assistance</option>
+                                <option value="transport_and_utilities" data-i18n="transportation">Transportation</option>
+                                <option value="other_services" data-i18n="otherServices">Other Government Services</option>
                             </select>
                         </div>
                     </div>
 
-                    <button type="button" class="mic-button" id="micButton" aria-label="Start voice assistant">
-                        <span class="mic-icon">◉</span>
+                    <button type="button" class="mic-button" id="micButton" aria-label="Start voice assistant" data-i18n-aria="startVoiceAssistant">
+                        <span class="mic-icon" dir="ltr">◉</span>
                     </button>
 
                     <div class="assistant-actions">
-                        <button type="button" class="primary-btn" id="startVoiceBtnSecondary">Start Conversation</button>
-                        <button type="button" class="secondary-btn" id="stopVoiceBtn">Stop Conversation</button>
-                        <button type="button" class="secondary-btn muted" id="retryVoiceBtn">Retry Microphone</button>
+                        <button type="button" class="primary-btn" id="startVoiceBtnSecondary" data-i18n="startConversation">Start Conversation</button>
+                        <button type="button" class="secondary-btn" id="stopVoiceBtn" data-i18n="stopConversation">Stop Conversation</button>
+                        <button type="button" class="secondary-btn muted" id="retryVoiceBtn" data-i18n="retryMicrophone">Retry Microphone</button>
                     </div>
 
                     <div class="status-box" aria-live="polite">
-                        <p id="voiceStatus">Ready to listen</p>
+                        <p id="voiceStatus" data-i18n="readyToListen">Ready to listen</p>
                     </div>
 
                     <div class="transcript-box">
-                        <h4>Recognised speech</h4>
-                        <p id="voiceTranscript">Your spoken answers will appear here.</p>
+                        <h4 data-i18n="recognisedSpeech">Recognised speech</h4>
+                        <p id="voiceTranscript" dir="auto" data-i18n="transcriptPlaceholder">Your spoken answers will appear here.</p>
                     </div>
                 </div>
 
                 <aside class="info-card" id="about">
-                    <p class="eyebrow">How it works</p>
-                    <h3>Find relevant support quickly</h3>
+                    <p class="eyebrow" data-i18n="howItWorks">How it works</p>
+                    <h3 data-i18n="findSupportQuickly">Find relevant support quickly</h3>
                     <ol class="step-list">
-                        <li><span>01</span><div><strong>Tell us about yourself.</strong><p>Share your situation in English, Arabic, or Tamil.</p></div></li>
-                        <li><span>02</span><div><strong>VoicePath checks programmes.</strong><p>Relevant Dubai and UAE schemes are matched against your profile.</p></div></li>
-                        <li><span>03</span><div><strong>Review recommendations.</strong><p>Explore preliminary matches and official application links.</p></div></li>
+                        <li><span dir="ltr">01</span><div><strong data-i18n="stepOneTitle">Tell us about yourself.</strong><p data-i18n="stepOneDescription">Share your situation in English, Arabic, or Tamil.</p></div></li>
+                        <li><span dir="ltr">02</span><div><strong data-i18n="stepTwoTitle">VoicePath checks programmes.</strong><p data-i18n="stepTwoDescription">Relevant Dubai and UAE schemes are matched against your profile.</p></div></li>
+                        <li><span dir="ltr">03</span><div><strong data-i18n="stepThreeTitle">Review recommendations.</strong><p data-i18n="stepThreeDescription">Explore preliminary matches and official application links.</p></div></li>
                     </ol>
                 </aside>
             </div>
@@ -118,8 +121,8 @@
         <section class="categories section-spacing" id="services">
             <div class="container">
                 <div class="section-heading">
-                    <p class="eyebrow">Benefits categories</p>
-                    <h3>Government services you may need</h3>
+                    <p class="eyebrow" data-i18n="benefitsCategories">Benefits categories</p>
+                    <h3 data-i18n="servicesYouMayNeed">Government services you may need</h3>
                 </div>
 
                 <div class="category-grid">
@@ -265,4 +268,3 @@
     <script src="/script.js"></script>
 </body>
 </html>
-
