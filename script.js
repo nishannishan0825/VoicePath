@@ -685,7 +685,7 @@ function stopVoiceSession() {
 }
 
 if (!SpeechRecognition) {
-    showStatus("Speech recognition is not supported in this browser.");
+    showStatus(t("speechUnsupported"));
     startVoiceBtn.disabled = true;
     startVoiceBtnSecondary.disabled = true;
     retryVoiceBtn.disabled = true;
@@ -706,7 +706,7 @@ if (!SpeechRecognition) {
         if (!isRunning || answerHandled) return;
         const error = event.error || "unknown";
         if (error !== "no-speech" && error !== "aborted") {
-            showStatus("Microphone error: " + error);
+            showStatus(t("microphoneError") + " " + error);
         }
     };
 
@@ -723,11 +723,9 @@ if (!SpeechRecognition) {
         retryCount++;
 
         if (retryCount <= 2) {
-            const retryMessage = voiceLanguage.value === "ar-AE"
-                ? "لم أسمع الجواب. الرجاء تكرار الإجابة."
-                : voiceLanguage.value === "ta-IN"
-                    ? "குரல் கேட்கவில்லை. அதே கேள்விக்கு மீண்டும் பதில் சொல்லுங்கள்."
-                    : "I could not hear you. Please answer the same question again.";
+            const retryMessage = voiceLanguage.value === "ta-IN"
+                ? "குரல் கேட்கவில்லை. அதே கேள்விக்கு மீண்டும் பதில் சொல்லுங்கள்."
+                : t("retryNoSpeech");
             showStatus(retryMessage);
             setTimeout(function () {
                 if (isRunning) {
@@ -739,7 +737,7 @@ if (!SpeechRecognition) {
             startVoiceBtn.disabled = false;
             startVoiceBtnSecondary.disabled = false;
             stopVoiceBtn.disabled = true;
-            showStatus("No speech was detected after several attempts.");
+            showStatus(t("noSpeech"));
         }
     };
 
@@ -754,6 +752,7 @@ if (!SpeechRecognition) {
         resetProfile();
 
         results.textContent = "";
+        latestResults = null;
         voiceTranscript.textContent = "";
         voiceLanguage.disabled = true;
         supportCategory.disabled = true;
@@ -777,5 +776,5 @@ if (!SpeechRecognition) {
     retryVoiceBtn.disabled = true;
 }
 
-voiceLanguage.addEventListener("change", setDocumentDirection);
-setDocumentDirection();
+voiceLanguage.addEventListener("change", applyLanguage);
+applyLanguage();
