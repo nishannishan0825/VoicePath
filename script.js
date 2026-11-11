@@ -541,8 +541,94 @@ function addText(parent, tag, text) {
     return element;
 }
 
+function resultText(value) {
+    return voiceLanguage.value === "ar-AE" ? (arabicResultText[value] || value) : value;
+}
+
+function renderBenefits(data) {
+    results.replaceChildren();
+    const heading = addText(results, "h3", t("recommendationsReady"));
+    heading.style.marginBottom = "16px";
+
+    if (!Array.isArray(data.results) || data.results.length === 0) {
+        const message = addText(results, "p", t("noMatches"));
+        message.dir = "auto";
+    } else {
+        data.results.forEach((result) => {
+            const card = document.createElement("article");
+            card.className = "result-card";
+
+            const name = addText(card, "h4", resultText(result.scheme_name || t("governmentService")));
+            name.dir = "auto";
+
+            const categoryLine = document.createElement("p");
+            categoryLine.append(document.createTextNode(t("categoryLabel") + " "));
+            const category = addText(categoryLine, "span", resultText(result.category || t("notSpecified")));
+            category.dir = "auto";
+            card.appendChild(categoryLine);
+
+            const statusValue = result.status || "to_be_verified";
+            const statusKey = statusValue === "potential_match"
+                ? "statusPotential"
+                : statusValue === "needs_more_information"
+                    ? "statusNeedsInfo"
+                    : statusValue === "not_matched"
+                        ? "statusNotMatched"
+                        : "statusToVerify";
+            const statusLine = document.createElement("p");
+            statusLine.append(document.createTextNode(t("statusLabel") + " "));
+            const status = addText(statusLine, "span", t(statusKey));
+            status.dir = "auto";
+            card.appendChild(statusLine);
+
+            if (Array.isArray(result.reasons) && result.reasons.length > 0) {
+                addText(card, "p", t("reasonHeading"));
+                result.reasons.forEach((reason) => {
+                    const item = addText(card, "p", "• " + resultText(reason));
+                    item.dir = "auto";
+                });
+            }
+
+            if (Array.isArray(result.missing_information) && result.missing_information.length > 0) {
+                addText(card, "p", t("missingHeading"));
+                result.missing_information.forEach((item) => {
+                    const missing = addText(card, "p", "• " + resultText(item));
+                    missing.dir = "auto";
+                });
+            }
+
+            if (result.official_source) {
+                const source = document.createElement("a");
+                source.href = result.official_source;
+                source.textContent = t("officialSource");
+                source.target = "_blank";
+                source.rel = "noopener noreferrer";
+                source.dir = "auto";
+                card.appendChild(source);
+            }
+
+            if (result.application_portal) {
+                const portal = document.createElement("a");
+                portal.href = result.application_portal;
+                portal.textContent = t("applicationPortal");
+                portal.target = "_blank";
+                portal.rel = "noopener noreferrer";
+                portal.dir = "auto";
+                card.appendChild(portal);
+            }
+
+            results.appendChild(card);
+        });
+    }
+
+    if (data.important_note) {
+        const note = addText(results, "p", resultText(data.important_note));
+        note.dir = "auto";
+    }
+}
+
 async function findBenefits() {
-    results.textContent = "Checking services...";
+    results.textContent = t("checkingServices");
 
     try {
         const response = await fetch("/find-benefits", {
@@ -556,62 +642,23 @@ async function findBenefits() {
             throw new Error(typeof data.detail === "string" ? data.detail : JSON.stringify(data.detail || data));
         }
 
-        results.textContent = "";
-        const heading = addText(results, "h3", "Your recommendations are ready.");
-        heading.style.marginBottom = "16px";
-
-        if (!Array.isArray(data.results) || data.results.length === 0) {
-            addText(results, "p", "No matching programmes were found in the current database. Try another service category or refine your profile.");
-        } else {
-            data.results.forEach((result) => {
-                const card = document.createElement("article");
-                card.className = "result-card";
-
-                addText(card, "h4", result.scheme_name || "Government service");
-                addText(card, "p", "Category: " + (result.category || "Not specified"));
-                addText(card, "p", "Status: " + ((result.status || "To be verified").replaceAll("_", " ")));
-
-                if (Array.isArray(result.reasons) && result.reasons.length > 0) {
-                    addText(card, "p", "Why this may match:");
-                    result.reasons.forEach((reason) => addText(card, "p", "• " + reason));
-                }
-
-                if (Array.isArray(result.missing_information) && result.missing_information.length > 0) {
-                    addText(card, "p", "Additional information needed:");
-                    result.missing_information.forEach((item) => addText(card, "p", "• " + item));
-                }
-
-                if (result.official_source) {
-                    const source = document.createElement("a");
-                    source.href = result.official_source;
-                    source.textContent = "Official source";
-                    source.target = "_blank";
-                    source.rel = "noopener noreferrer";
-                    card.appendChild(source);
-                }
-
-                if (result.application_portal) {
-                    const portal = document.createElement("a");
-                    portal.href = result.application_portal;
-                    portal.textContent = "Application portal";
-                    portal.target = "_blank";
-                    portal.rel = "noopener noreferrer";
-                    card.appendChild(portal);
-                }
-
-                results.appendChild(card);
-            });
-        }
-
-        if (data.important_note) {
-            addText(results, "p", data.important_note);
-        }
-
-        showStatus("Your recommendations are ready.");
-        speak(voiceLanguage.value === "ar-AE" ? "تم عرض النتائج على الشاشة." : voiceLanguage.value === "ta-IN" ? "உங்கள் பரிந்துரைகள் திரையில் காட்டப்பட்டுள்ளன." : "Your recommendations are displayed on the screen.");
+        latestResults = data;
+        renderBenefits(data);
+        showStatus(t("recommendationsReady"));
+        speak(voiceLanguage.value === "ta-IN"
+            ? "உங்கள் பரிந்துரைகள் திரையில் காட்டப்பட்டுள்ளன."
+            : voiceLanguage.value === "ar-AE"
+                ? "تم عرض التوصيات على الشاشة."
+                : t("speechDisplayed"));
     } catch (error) {
-        results.textContent = "Error: " + error.message;
-        showStatus("Could not load scheme matches. Please check the server.");
+        latestResults = null;
+        results.replaceChildren();
+        const errorMessage = addText(results, "p", t("errorLabel") + " " + error.message);
+        errorMessage.dir = "auto";
+        showStatus(t("loadError"));
+        if (voiceLanguage.value === "ar-AE") {
+            speak(t("speechError"));
+        }
         console.error("VoicePath error:", error);
     }
 }
