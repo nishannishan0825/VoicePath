@@ -20,6 +20,8 @@ let latestResults = null;
 
 const translations = {
     "ar-AE": {
+        brandHome: "الصفحة الرئيسية لـ VoicePath Dubai",
+        heroVisualLabel: "مشهد لأفق دبي",
         navLabel: "التنقل الرئيسي",
         navHome: "الرئيسية",
         navDiscover: "اكتشف الدعم",
@@ -92,7 +94,7 @@ const translations = {
         enayaDescription: "برامج للرعاية الصحية مخصصة للمقيمين المؤهلين والفئات الأكثر احتياجاً.",
         healthcareBeneficiary: "الفئة المستفيدة: احتياجات الرعاية الصحية",
         aboutVoicePath: "عن VoicePath",
-        footerDescription: "VoicePath نموذج مستقل لاكتشاف الخدمات الحكومية، وليس موقعاً رسمياً لحكومة دبي.",
+        footerDescription: "هو نموذج مستقل لاكتشاف الخدمات الحكومية، وليس موقعاً رسمياً لحكومة دبي.",
         policies: "السياسات",
         privacyPolicy: "سياسة الخصوصية",
         termsOfUse: "شروط الاستخدام",
