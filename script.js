@@ -433,27 +433,46 @@ async function loadSchemeCatalogue() {
 
     try {
         const response = await fetch(`${API_URL}/schemes`);
-        if (!response.ok) {
-            throw new Error(`Scheme catalogue request failed (${response.status}).`);
+        if (response.ok) {
+            const data = await response.json();
+            const schemes = Array.isArray(data) ? data : data.schemes;
+            if (!Array.isArray(schemes)) {
+                throw new Error("The scheme API response does not contain a scheme list.");
+            }
+            catalogueSchemes = schemes;
+        } else {
+            throw new Error(`Scheme API returned ${response.status}.`);
         }
-
-        const data = await response.json();
-        if (!Array.isArray(data.schemes)) {
-            throw new Error("The scheme catalogue response is not a list.");
-        }
-
-        catalogueSchemes = data.schemes;
         renderSchemeCatalogue(catalogueSchemes);
     } catch (error) {
-        console.error("Could not load scheme catalogue:", error);
-        grid.replaceChildren();
-        const message = document.createElement("p");
-        message.textContent = voiceLanguage.value === "ar-AE"
-            ? "تعذر تحميل البرامج. يرجى المحاولة لاحقاً."
-            : "Could not load government programmes. Please try again later.";
-        message.setAttribute("role", "alert");
-        grid.appendChild(message);
+        console.warn("Scheme API unavailable; trying the bundled catalogue.", error);
+        try {
+            await loadBundledSchemeCatalogue();
+            renderSchemeCatalogue(catalogueSchemes);
+        } catch (fallbackError) {
+            console.error("Could not load the scheme catalogue from the API or bundled data:", fallbackError);
+            grid.replaceChildren();
+            const message = document.createElement("p");
+            message.textContent = voiceLanguage.value === "ar-AE"
+                ? "تعذر تحميل البرامج. يرجى المحاولة لاحقاً."
+                : "Could not load government programmes. Please try again later.";
+            message.setAttribute("role", "alert");
+            grid.appendChild(message);
+        }
     }
+}
+
+async function loadBundledSchemeCatalogue() {
+    const response = await fetch("./schemes.json");
+    if (!response.ok) {
+        throw new Error(`Bundled scheme catalogue request failed (${response.status}).`);
+    }
+
+    const schemes = await response.json();
+    if (!Array.isArray(schemes)) {
+        throw new Error("The bundled scheme catalogue is not a list.");
+    }
+    catalogueSchemes = schemes;
 }
 
 voiceLanguage.addEventListener("change", () => {
