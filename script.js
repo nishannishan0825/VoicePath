@@ -246,3 +246,56 @@ async function fetchSchemesAndMatch() {
         renderResultsHTML(latestResults);
     } catch (err) {
         console.error("Matching Error:", err);
+        if (voiceStatus) voiceStatus.innerText = "Could not load matching programmes.";
+    }
+}
+
+function renderResultsHTML(schemes) {
+    if (!results) return;
+    results.replaceChildren();
+
+    if (!Array.isArray(schemes) || schemes.length === 0) return;
+
+    const heading = document.createElement("h3");
+    heading.textContent = voiceLanguage.value === "ar-AE" ? "الخدمات الحكومية المتاحة" : "Available government services";
+    results.appendChild(heading);
+
+    schemes.forEach((scheme) => {
+        const card = document.createElement("article");
+        card.className = "result-card";
+
+        const title = document.createElement("h4");
+        title.textContent = voiceLanguage.value === "ar-AE"
+            ? (arabicResultText[scheme.scheme_name] || scheme.scheme_name || "خدمة حكومية")
+            : (scheme.scheme_name || "Government service");
+        title.dir = "auto";
+        card.appendChild(title);
+
+        if (scheme.category) {
+            const category = document.createElement("p");
+            category.textContent = voiceLanguage.value === "ar-AE"
+                ? (arabicResultText[scheme.category] || scheme.category)
+                : scheme.category;
+            category.dir = "auto";
+            card.appendChild(category);
+        }
+
+        if (scheme.official_source) {
+            const source = document.createElement("a");
+            source.href = scheme.official_source;
+            source.textContent = voiceLanguage.value === "ar-AE" ? "المصدر الرسمي" : "Official source";
+            source.target = "_blank";
+            source.rel = "noopener noreferrer";
+            source.dir = "auto";
+            card.appendChild(source);
+        }
+
+        results.appendChild(card);
+    });
+}
+
+voiceLanguage.addEventListener("change", () => {
+    applyLanguage();
+    if (Array.isArray(latestResults)) renderResultsHTML(latestResults);
+});
+applyLanguage();
