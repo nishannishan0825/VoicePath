@@ -176,7 +176,9 @@ const arabicResultText = {
     "Senior citizen status": "حالة كبار المواطنين",
     "Housing situation": "الحالة السكنية",
     "Healthcare support is more relevant when there is a medical need.": "تكون خدمات الرعاية الصحية أنسب عند وجود حاجة طبية.",
-    "Use Arabic or English and specify your support category to improve matching accuracy.": "يرجى استخدام العربية أو الإنجليزية وتحديد فئة الدعم لتحسين دقة المطابقة."
+    "Use Arabic or English and specify your support category to improve matching accuracy.": "يرجى استخدام العربية أو الإنجليزية وتحديد فئة الدعم لتحسين دقة المطابقة.",
+    "These are preliminary matches only. Confirm the latest eligibility rules and application windows with the official government portal.": "هذه النتائج أولية فقط. يرجى التحقق من أحدث شروط الأهلية ومواعيد التقديم عبر البوابة الحكومية الرسمية.",
+    "The requested support does not align with the selected service category.": "نوع الدعم المطلوب لا يتوافق مع فئة الخدمة المحددة."
 };
 
 function t(key) {
@@ -557,7 +559,39 @@ function addText(parent, tag, text) {
 }
 
 function resultText(value) {
-    return voiceLanguage.value === "ar-AE" ? (arabicResultText[value] || value) : value;
+    if (voiceLanguage.value !== "ar-AE") {
+        return value;
+    }
+
+    if (arabicResultText[value]) {
+        return arabicResultText[value];
+    }
+
+    let match = value.match(/^This programme requires (.+) residency\.$/);
+    if (match) {
+        return "يشترط هذا البرنامج توفر إقامة من فئة " + match[1] + ".";
+    }
+    match = value.match(/^Age must be at least (\d+) years\.$/);
+    if (match) {
+        return "يشترط ألا يقل العمر عن " + match[1] + " سنة.";
+    }
+    match = value.match(/^Age must be (\d+) or younger\.$/);
+    if (match) {
+        return "يجب ألا يتجاوز العمر " + match[1] + " سنة.";
+    }
+    match = value.match(/^Disability percentage must be at least (\d+)%\.$/);
+    if (match) {
+        return "يجب ألا تقل نسبة الإعاقة عن " + match[1] + "%.";
+    }
+    match = value.match(/^Monthly income exceeds the scheme limit of AED ([\d,]+)\.$/);
+    if (match) {
+        return "يتجاوز الدخل الشهري الحد المسموح به في البرنامج، وهو AED " + match[1] + ".";
+    }
+    match = value.match(/^Household income exceeds the scheme limit of AED ([\d,]+)\.$/);
+    if (match) {
+        return "يتجاوز دخل الأسرة الحد المسموح به في البرنامج، وهو AED " + match[1] + ".";
+    }
+    return value;
 }
 
 function renderBenefits(data) {
