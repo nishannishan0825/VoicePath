@@ -18,8 +18,14 @@ body {
     margin: 0;
     background: var(--white);
     color: var(--charcoal);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
     line-height: 1.6;
+    text-align: start;
+}
+
+html[lang="ar-AE"] body {
+    font-family: "Noto Sans Arabic", Arial, sans-serif;
+    line-height: 1.85;
 }
 
 img {
@@ -35,6 +41,15 @@ a {
 button,
 select {
     font: inherit;
+}
+
+button,
+select {
+    max-width: 100%;
+}
+
+[dir] {
+    unicode-bidi: isolate;
 }
 
 .container {
@@ -87,6 +102,7 @@ select {
     align-items: center;
     gap: 26px;
     font-size: 0.96rem;
+    white-space: nowrap;
 }
 
 .main-nav a {
@@ -117,6 +133,7 @@ select {
     outline: none;
     padding: 0;
     font-weight: 600;
+    max-width: 132px;
 }
 
 .hero {
@@ -155,6 +172,10 @@ select {
     font-size: clamp(2.5rem, 4vw, 4.3rem);
     line-height: 1.05;
     max-width: 560px;
+}
+
+html[lang="ar-AE"] .hero-copy h1 {
+    line-height: 1.35;
 }
 
 .hero-copy h2 {
@@ -199,14 +220,14 @@ select {
 .primary-btn {
     background: var(--gold);
     color: var(--white);
-    padding: 16px 24px;
+    padding: 12px 24px;
 }
 
 .secondary-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 16px 22px;
+    padding: 12px 22px;
     border: 1px solid var(--charcoal);
     border-radius: 999px;
     color: var(--charcoal);
@@ -239,7 +260,7 @@ select {
 
 .hero-panel {
     position: absolute;
-    right: 26px;
+    inset-inline-end: 26px;
     bottom: 26px;
     background: rgba(255, 255, 255, 0.96);
     border: 1px solid var(--soft-border);
@@ -313,7 +334,7 @@ select {
 .mic-button {
     width: 120px;
     height: 120px;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     background: var(--gold);
@@ -634,6 +655,13 @@ select {
     .assistant-actions {
         flex-direction: column;
         align-items: stretch;
+    }
+
+    .primary-btn,
+    .secondary-btn,
+    .secondary-link {
+        min-height: 52px;
+        line-height: 1.35;
     }
 
     .primary-btn,
