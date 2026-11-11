@@ -637,10 +637,14 @@ html[lang="ar-AE"] .hero-copy h1 {
 
     .header-inner {
         gap: 14px;
+        flex-wrap: wrap;
     }
 
     .main-nav {
         gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+        white-space: normal;
     }
 
     .hero-visual img {

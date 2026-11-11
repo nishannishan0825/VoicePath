@@ -267,6 +267,12 @@ function applyLanguage() {
     const language = voiceLanguage.value;
     document.documentElement.lang = language;
     document.documentElement.dir = language === "ar-AE" ? "rtl" : "ltr";
+    document.title = language === "ar-AE"
+        ? "VoicePath Dubai | الخدمات الحكومية"
+        : "VoicePath Dubai | Government Support";
+    document.querySelector('meta[name="description"]').content = language === "ar-AE"
+        ? "تساعد VoicePath Dubai السكان على استكشاف المزايا والخدمات الحكومية من خلال تجربة صوتية سهلة."
+        : "VoicePath Dubai helps residents explore government benefits and services through a simple voice-first experience.";
 
     document.querySelectorAll("[data-i18n]").forEach((element) => {
         element.textContent = t(element.dataset.i18n);
