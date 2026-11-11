@@ -261,14 +261,33 @@ const questions = {
     ]
 };
 
-function setDocumentDirection() {
-    const isArabic = voiceLanguage.value === "ar-AE";
-    document.body.dir = isArabic ? "rtl" : "ltr";
-    document.documentElement.lang = voiceLanguage.value;
+function applyLanguage() {
+    const language = voiceLanguage.value;
+    document.documentElement.lang = language;
+    document.documentElement.dir = language === "ar-AE" ? "rtl" : "ltr";
+
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
+        element.textContent = t(element.dataset.i18n);
+    });
+    document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+        element.setAttribute("aria-label", t(element.dataset.i18nAria));
+    });
+    document.querySelectorAll("[data-i18n-alt]").forEach((element) => {
+        element.setAttribute("alt", t(element.dataset.i18nAlt));
+    });
+
+    if (!isRunning) {
+        showStatus(!SpeechRecognition ? t("speechUnsupported") : t("readyToListen"));
+        if (latestResults) {
+            renderBenefits(latestResults);
+            showStatus(t("recommendationsReady"));
+        }
+    }
 }
 
 function showStatus(message) {
     voiceStatus.textContent = message;
+    voiceStatus.dir = "auto";
 }
 
 function speak(message, callback) {
