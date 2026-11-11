@@ -178,8 +178,45 @@ const arabicResultText = {
 };
 
 function t(key) {
-    return (translations[voiceLanguage.value] && translations[voiceLanguage.value][key]) || key;
+    const localized = translations[voiceLanguage.value];
+    return (localized && localized[key]) || defaultTranslations.get(key) || englishMessages[key] || key;
 }
+
+const defaultTranslations = new Map(
+    Array.from(document.querySelectorAll("[data-i18n]"))
+        .map((element) => [element.dataset.i18n, element.textContent])
+);
+const englishMessages = {
+    readyStatus: "Ready to listen",
+    listening: "Listening... Please speak now.",
+    microphoneBusy: "Microphone is busy. Please try again.",
+    retryAnswer: "Sorry, I could not understand that answer. Please say it again.",
+    retryNoSpeech: "I could not hear you. Please answer the same question again.",
+    noSpeech: "No speech was detected after several attempts.",
+    speechUnsupported: "Speech recognition is not supported in this browser.",
+    microphoneError: "Microphone error:",
+    findingBenefits: "Finding relevant government benefits...",
+    checkingServices: "Checking services...",
+    recommendationsReady: "Your recommendations are ready.",
+    noMatches: "No matching programmes were found in the current database. Try another service category or refine your profile.",
+    governmentService: "Government service",
+    categoryLabel: "Category:",
+    statusLabel: "Status:",
+    reasonHeading: "Why this may match:",
+    missingHeading: "Additional information needed:",
+    officialSource: "Official source",
+    applicationPortal: "Application portal",
+    loadError: "Could not load scheme matches. Please check the server.",
+    errorLabel: "Error:",
+    statusPotential: "Potential match",
+    statusNeedsInfo: "Needs more information",
+    statusNotMatched: "Not matched",
+    statusToVerify: "To be verified",
+    notSpecified: "Not specified",
+    speechDisplayed: "Your recommendations are displayed on the screen.",
+    speechChecking: "Thank you. We are checking the services that may match your profile.",
+    speechError: "An error occurred while loading the results."
+};
 
 const profile = {
     support_needed: "",
