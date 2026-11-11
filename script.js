@@ -163,6 +163,51 @@ const arabicResultText = {
     "healthcare": "الرعاية الصحية"
 };
 
+const defaultUiText = new Map(
+    Array.from(document.querySelectorAll("[data-i18n]"))
+        .map((element) => [element.dataset.i18n, element.textContent])
+);
+const defaultAriaLabels = new Map(
+    Array.from(document.querySelectorAll("[data-i18n-aria]"))
+        .map((element) => [element.dataset.i18nAria, element.getAttribute("aria-label")])
+);
+const defaultAltText = new Map(
+    Array.from(document.querySelectorAll("[data-i18n-alt]"))
+        .map((element) => [element.dataset.i18nAlt, element.getAttribute("alt")])
+);
+
+function applyLanguage() {
+    const language = voiceLanguage.value;
+    const isArabic = language === "ar-AE";
+    const localizedText = isArabic ? translations[language] : null;
+
+    document.documentElement.lang = language;
+    document.documentElement.dir = isArabic ? "rtl" : "ltr";
+    document.title = isArabic
+        ? "VoicePath Dubai | الخدمات الحكومية"
+        : "VoicePath Dubai | Government Support";
+
+    const description = document.querySelector('meta[name="description"]');
+    if (description) {
+        description.content = isArabic
+            ? "تساعد VoicePath Dubai السكان على استكشاف المزايا والخدمات الحكومية من خلال تجربة صوتية سهلة."
+            : "VoicePath Dubai helps residents explore government benefits and services through a simple voice-first experience.";
+    }
+
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.dataset.i18n;
+        element.textContent = (localizedText && localizedText[key]) || defaultUiText.get(key) || key;
+    });
+    document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+        const key = element.dataset.i18nAria;
+        element.setAttribute("aria-label", (localizedText && localizedText[key]) || defaultAriaLabels.get(key) || key);
+    });
+    document.querySelectorAll("[data-i18n-alt]").forEach((element) => {
+        const key = element.dataset.i18nAlt;
+        element.setAttribute("alt", (localizedText && localizedText[key]) || defaultAltText.get(key) || key);
+    });
+}
+
 // ==========================================
 // 📡 NETWORK COMMUNICATIONS LAYER (FETCH)
 // ==========================================
